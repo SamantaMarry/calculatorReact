@@ -9,9 +9,68 @@ $color-text-secondary: #29A8FF;
 
 
 .container{
+    font-family: 'Poppins', sans-serif;
     width: 375px;
-    height: 812px;
+    height: 80vh;
     margin: auto auto;
     background: linear-gradient(191.34deg, #17181A -4.95%, #17181A 103.74%);
-    border-radius: 39px;
+    background-color: -webkit-linear-gradient(191.34deg, #17181A -4.95%, #17181A 103.74%);
+    border-radius: 39px;        
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.keyboard{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    margin: 40px 0px;
+    &__row{
+        display: flex;
+        flex-direction: row;
+    }
+}
+.display{    
+    width: 305px;
+    margin-left: 19px;
+    color: white;
+}
+.erro{
+    color: red;    
+}
+
+
+.btn {    
+    border: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 6px 4px;
+
+    width: 62px;
+    height: 60px;
+
+    background: $color-secondary;
+    border-radius: 16px;
+
+    margin: 8px 10px;
+
+    font-family: Poppins;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 48px;
+    letter-spacing: 0em;  
+    color: $color-text-secondary;  
+
+    &__primary{
+        color: $color-text-primary;
+        background: $color-primary;
+    }
+
+    &__larger{
+        width: 142px;
+    }
+    
 }
