@@ -8,7 +8,8 @@ const Calculator = () => {
     const [history, setHistory] = useState([])
     const [error, setError] = useState(false);
 
-        
+    
+    
     function inputNum(e:any){
         let input = e.target.value;
         
@@ -24,7 +25,7 @@ const Calculator = () => {
 
     function handleCalculate(expression: string){
         try {
-            let newResult = result as any;
+            let newResult = result as any
             const value = eval(expression);
             newResult.push(value);
             
@@ -52,36 +53,53 @@ const Calculator = () => {
     }
 
     return (
-        <div>
-            
-            {history.map(value => 
-                <p key={Math.random()}> {value} </p>
-            )} 
+        <div className='container'>
+            <div className="calculator">
+                <div className='calculator-display'>
+                    {history.map(value => 
+                        <p className="history" key={Math.random()}> {value} </p>
+                    )} 
 
-            {num && <p>{dinamicResult}</p>}
-    
-            <input type='text' value={num} onChange={handleOnChange} onKeyDown={handleKeyDown}className="form-control"></input>                
-            {error && <p className="error"> expressao mal formada </p>}
-            <div> 
-                <button onClick={inputNum} value={'1'}>1</button>
-                <button onClick={inputNum} value={'2'}>2</button>
-                <button onClick={inputNum} value={'3'}>3</button>
-                <button onClick={inputNum} value={'4'}>4</button>
-                <button onClick={inputNum} value={'5'}>5</button>
-                <button onClick={inputNum} value={'6'}>6</button>
-                <button onClick={inputNum} value={'7'}>7</button>
-                <button onClick={inputNum} value={'8'}>8</button>
-                <button onClick={inputNum} value={'9'}>9</button>
-                <button onClick={inputNum} value={'0'}>0</button>
-                <button onClick={() => handleCalculate(num)}>=</button>
-                <button>,</button>
-            </div>
-            <div> 
-                <button onClick={clear}>AC</button>
-                <button onClick={inputNum} value={'+'}>+</button>
-                <button onClick={inputNum} value={'-'}>-</button>
-                <button onClick={inputNum} value={'*'}>*</button>                
-                <button onClick={inputNum} value={'/'}>/</button>
+            
+                    <input type='text' className='calculator-input' value={num} onChange={handleOnChange} onKeyDown={handleKeyDown}></input>                
+                    {error && <p className="error"> expressao mal formada </p>}
+                </div>
+
+                <div className='calculator-keyboard'>
+                    <div className='calculator-keyboard__row'>                    
+                        <button onClick={clear} className="btn">AC</button>
+                        <button className="btn" >+/-</button>
+                        <button className="btn" >%</button>
+                        <button className="btn btn-pink" onClick={inputNum} value="/">÷</button>                        
+                    </div>
+                    <div className='calculator-keyboard__row'>
+                        <button className="btn btn-purple" onClick={inputNum} value={'7'}>7</button>
+                        <button className="btn btn-purple" onClick={inputNum} value={'8'}>8</button>
+                        <button className="btn btn-purple" onClick={inputNum} value={'9'}>9</button>
+                        <button className="btn btn-pink" onClick={inputNum} value={'*'}>x</button>
+                    </div>
+
+                    <div className='calculator-keyboard__row'>
+                        <button className="btn btn-purple" onClick={inputNum} value={'4'}>4</button>
+                        <button className="btn btn-purple" onClick={inputNum} value={'5'}>5</button>
+                        <button className="btn btn-purple" onClick={inputNum} value={'6'}>6</button>
+                        <button className="btn btn-pink" onClick={inputNum} value={'-'}>-</button>
+                    </div>
+
+                    <div className='calculator-keyboard__row'>
+                        <button className="btn btn-purple" onClick={inputNum} value={'1'}>1</button>
+                        <button className="btn btn-purple" onClick={inputNum} value={'2'}>2</button>
+                        <button className="btn btn-purple" onClick={inputNum} value={'3'}>3</button>
+                        <button className="btn btn-pink" onClick={inputNum} value={'+'}>+</button>
+                    </div>
+
+                    <div className='calculator-keyboard__row'>
+                        <button className="btn btn-large btn-purple" onClick={inputNum} value={'0'}>0</button>
+                        <button className="btn btn-purple" onClick={inputNum} value={'.'}>.</button>
+                        <button className="btn btn-secondary" onClick={() => handleCalculate(num)}>=</button>                        
+                    </div>
+                    
+                </div>
             </div>
         </div>  
     )
