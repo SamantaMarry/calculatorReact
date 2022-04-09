@@ -62,7 +62,7 @@ const Calculator = () => {
 
             
                     <input type='text' className='calculator-input' value={num} onChange={handleOnChange} onKeyDown={handleKeyDown}></input>                
-                    {error && <p className="error"> expressao mal formada </p>}
+                    {error && <p className="error"> expressão mal formada </p>}
                 </div>
 
                 <div className='calculator-keyboard'>
